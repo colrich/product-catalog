@@ -26,12 +26,12 @@ jobs:
       privileged: true
       file: source-code/create-services.yml
       params:
-        cf-api: {{cf-api}}
-        cf-user: {{cf-user}}
-        cf-pass: {{cf-pass}}
-        cf-org: {{cf-org}}
-        cf-space: {{cf-space}}
-        jrc-eureka: {{jrc-eureka}}
+        CF_API: {{cf-api}}
+        CF_USER: {{cf-user}}
+        CF_PASS: {{cf-pass}}
+        CF_ORG: {{cf-org}}
+        CF_SPACE: {{cf-space}}
+        JRC_EUREKA: {{jrc-eureka}}
     - put: deploy-service
       params: 
         manifest: source-code/product-service/manifest.yml
