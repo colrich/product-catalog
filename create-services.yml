@@ -14,7 +14,7 @@ outputs:
 
 run:
   path: "source-code/create-services.sh"
-  args: []
+  args: ["{{cf-api}}", "{{cf-user}}", "{{cf-pass}}", "{{cf-org}}", "{{cf-space}}", "{{jrc-eureka}}"]
 
 params:
   MAVEN_BASEDIR: source-code/product-service
