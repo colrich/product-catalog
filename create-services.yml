@@ -9,14 +9,6 @@ image_resource:
 inputs:
   - name: source-code
 
-params:
-  cf-api: https://api.run.pez.pivotal.io
-  cf-user: blah
-  cf-pass: aoeu
-  cf-org: jrc
-  cf-space: jrc
-  jrc-eureka: jrc
-
 run:
   path: "source-code/create-services.sh"
   args: []

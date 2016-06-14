@@ -2,16 +2,16 @@ resources:
   - name: source-code
     type: git
     source:
-      uri: {{git-repo}}
-      branch: {{git-repo-branch}}
+      uri: {{GIT_REPO}}
+      branch: {{GIT_REPO_BRANCH}}
   - name: deploy-service
     type: cf
     source:
-      api: {{cf-api}}
-      username: {{cf-user}}
-      password: {{cf-pass}}
-      organization: {{cf-org}}
-      space: {{cf-space}}
+      api: {{CF_API}}
+      username: {{CF_USER}}
+      password: {{CF_PASS}}
+      organization: {{CF_ORG}}
+      space: {{CF_SPACE}}
       skip_cert_check: true
 
 jobs:
@@ -25,13 +25,6 @@ jobs:
     - task: create-services
       privileged: true
       file: source-code/create-services.yml
-      params:
-        cf-api: {{cf-api}}
-        cf-user: {{cf-user}}
-        cf-pass: {{cf-pass}}
-        cf-org: {{cf-org}}
-        cf-space: {{cf-space}}
-        jrc-eureka: {{jrc-eureka}}
     - put: deploy-service
       params: 
         manifest: source-code/product-service/manifest.yml
@@ -46,13 +39,6 @@ jobs:
     - task: create-services
       privileged: true
       file: source-code/create-services.yml
-      params:
-        cf-api:	{{cf-api}}
-        cf-user: {{cf-user}}
-        cf-pass: {{cf-pass}}
-        cf-org:  {{cf-org}}
-        cf-space: {{cf-space}}
-        jrc-eureka: {{jrc-eureka}}
     - put: deploy-service
       params:
         manifest: source-code/photo-service/manifest.yml
@@ -67,13 +53,6 @@ jobs:
     - task: create-services
       privileged: true
       file: source-code/create-services.yml
-      params:
-        cf-api:	{{cf-api}}
-        cf-user: {{cf-user}}
-        cf-pass: {{cf-pass}}
-        cf-org:  {{cf-org}}
-        cf-space: {{cf-space}}
-        jrc-eureka: {{jrc-eureka}}
     - put: deploy-service
       params:
         manifest: source-code/product-ui/manifest.yml
