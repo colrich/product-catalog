@@ -25,6 +25,13 @@ jobs:
     - task: create-services
       privileged: true
       file: source-code/create-services.yml
+      params:
+        CF_API: {{CF_API}}
+	CF_USER: {{CF_USER}}
+	CF_PASS: {{CF_PASS}}
+	CF_ORG: {{CF_ORG}}
+	CF_SPACE: {{CF_SPACE}}
+	JRC_EUREKA: {{JRC_EUREKA}}
     - put: deploy-service
       params: 
         manifest: source-code/product-service/manifest.yml
@@ -39,6 +46,13 @@ jobs:
     - task: create-services
       privileged: true
       file: source-code/create-services.yml
+      params:
+        CF_API:	{{CF_API}}
+        CF_USER: {{CF_USER}}
+        CF_PASS: {{CF_PASS}}
+        CF_ORG:  {{CF_ORG}}
+        CF_SPACE: {{CF_SPACE}}
+        JRC_EUREKA: {{JRC_EUREKA}}
     - put: deploy-service
       params:
         manifest: source-code/photo-service/manifest.yml
@@ -50,6 +64,13 @@ jobs:
     - task: package
       privileged: true
       file: source-code/product-ui/build.yml
+      params:
+        CF_API:	{{CF_API}}
+        CF_USER: {{CF_USER}}
+        CF_PASS: {{CF_PASS}}
+        CF_ORG:  {{CF_ORG}}
+        CF_SPACE: {{CF_SPACE}}
+        JRC_EUREKA: {{JRC_EUREKA}}
     - task: create-services
       privileged: true
       file: source-code/create-services.yml
