@@ -19,9 +19,6 @@ jobs:
     plan:
     - get: source-code
       trigger: true
-    - task: package
-      privileged: true
-      file: source-code/product-service/build.yml
     - task: create-services
       privileged: true
       file: source-code/create-services.yml
@@ -29,9 +26,12 @@ jobs:
         CF_API: {{CF_API}}
         CF_USER: {{CF_USER}}
         CF_PASS: {{CF_PASS}}
-        CF_ORG: {{CF_ORG}}
+        CF_ORG:  {{CF_ORG}}
         CF_SPACE: {{CF_SPACE}}
         JRC_EUREKA: {{JRC_EUREKA}}
+    - task: package
+      privileged: true
+      file: source-code/product-service/build.yml
     - put: deploy-service
       params: 
         manifest: source-code/product-service/manifest.yml
@@ -40,19 +40,19 @@ jobs:
     plan:
     - get: source-code
       trigger: true
-    - task: package
-      privileged: true
-      file: source-code/photo-service/build.yml
     - task: create-services
       privileged: true
       file: source-code/create-services.yml
       params:
-        CF_API:	{{CF_API}}
+        CF_API: {{CF_API}}
         CF_USER: {{CF_USER}}
         CF_PASS: {{CF_PASS}}
         CF_ORG:  {{CF_ORG}}
         CF_SPACE: {{CF_SPACE}}
         JRC_EUREKA: {{JRC_EUREKA}}
+    - task: package
+      privileged: true
+      file: source-code/photo-service/build.yml
     - put: deploy-service
       params:
         manifest: source-code/photo-service/manifest.yml
@@ -61,19 +61,19 @@ jobs:
     plan:
     - get: source-code
       trigger: true
-    - task: package
+    - task: create-services
       privileged: true
-      file: source-code/product-ui/build.yml
+      file: source-code/create-services.yml
       params:
-        CF_API:	{{CF_API}}
+        CF_API: {{CF_API}}
         CF_USER: {{CF_USER}}
         CF_PASS: {{CF_PASS}}
         CF_ORG:  {{CF_ORG}}
         CF_SPACE: {{CF_SPACE}}
         JRC_EUREKA: {{JRC_EUREKA}}
-    - task: create-services
+    - task: package
       privileged: true
-      file: source-code/create-services.yml
+      file: source-code/product-ui/build.yml
     - put: deploy-service
       params:
         manifest: source-code/product-ui/manifest.yml
