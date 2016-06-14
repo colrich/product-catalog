@@ -78,3 +78,4 @@ jobs:
       params:
         manifest: source-code/product-ui/manifest.yml
         path: product-ui-artifacts/product-ui-0.0.1-SNAPSHOT.jar
+
