@@ -22,6 +22,9 @@ jobs:
     - task: package
       privileged: true
       file: source-code/product-service/build.yml
+    - task: create-services
+      privileged: true
+      file: source-code/create-services.yml
     - put: deploy-service
       params: 
         manifest: source-code/product-service/manifest.yml
@@ -33,6 +36,9 @@ jobs:
     - task: package
       privileged: true
       file: source-code/photo-service/build.yml
+    - task: create-services
+      privileged: true
+      file: source-code/create-services.yml
     - put: deploy-service
       params:
         manifest: source-code/photo-service/manifest.yml
@@ -44,6 +50,9 @@ jobs:
     - task: package
       privileged: true
       file: source-code/product-ui/build.yml
+    - task: create-services
+      privileged: true
+      file: source-code/create-services.yml
     - put: deploy-service
       params:
         manifest: source-code/product-ui/manifest.yml
