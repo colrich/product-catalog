@@ -10,12 +10,12 @@ inputs:
   - name: source-code
 
 params:
-  CF_API: https://api.run.pez.pivotal.io
-  CF_USER: blah
-  CF_PASS: aoeu
-  CF_ORG: jrc
-  CF_SPACE: jrc
-  JRC_EUREKA: jrc
+  cf-api: https://api.run.pez.pivotal.io
+  cf-user: blah
+  cf-pass: aoeu
+  cf-org: jrc
+  cf-space: jrc
+  jrc-eureka: jrc
 
 run:
   path: "source-code/create-services.sh"
