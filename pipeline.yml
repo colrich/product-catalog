@@ -3,7 +3,7 @@ resources:
     type: git
     source:
       uri: {{git-repo}}
-      branch: buildsystem
+      branch: scs
   - name: deploy-service
     type: cf
     source:
